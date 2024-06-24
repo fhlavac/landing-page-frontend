@@ -8,11 +8,13 @@ const moveWidget = async (sourceIndex: number, targetIndex: number) => {
       cy.get(targetSelector, { timeout: 5000 })
         .should('be.visible')
         .then(($target) => {
+          console.log('aaa');
           cy.wrap($source).trigger('mousedown', { which: 1 });
-
+          console.log('bbb');
           cy.wrap($target)
             .trigger('mousemove', { which: 1 })
             .trigger('mouseup', { force: true });
+          console.log('ccc');
         });
     });
 };
